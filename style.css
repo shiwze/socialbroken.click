@@ -1,0 +1,272 @@
+/* Сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    overflow: hidden; /* Предотвращаем скролл во время загрузки */
+}
+
+/* Стили для лоадера */
+.loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 90px;
+    z-index: 1000;
+}
+
+.loader:before {
+    content: "";
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: #2a9d8f;
+    animation: loading-bounce 0.5s ease-in-out infinite alternate;
+}
+
+.loader:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 7px;
+    width: 45px;
+    border-radius: 4px;
+    box-shadow: 0 5px 0 #f2f2f2, -35px 50px 0 #f2f2f2, -70px 95px 0 #f2f2f2;
+    animation: loading-step 1s ease-in-out infinite;
+}
+
+/* Анимации */
+@keyframes loading-bounce {
+    0% {
+        transform: scale(1, 0.7);
+    }
+
+    40% {
+        transform: scale(0.8, 1.2);
+    }
+
+    60% {
+        transform: scale(1, 1);
+    }
+
+    100% {
+        bottom: 140px;
+    }
+}
+
+@keyframes loading-step {
+    0% {
+        box-shadow: 0 10px 0 rgba(0, 0, 0, 0),
+                0 10px 0 #f2f2f2,
+                -35px 50px 0 #f2f2f2,
+                -70px 90px 0 #f2f2f2;
+    }
+
+    100% {
+        box-shadow: 0 10px 0 #f2f2f2,
+                -35px 50px 0 #f2f2f2,
+                -70px 90px 0 #f2f2f2,
+                -70px 90px 0 rgba(0, 0, 0, 0);
+    }
+}
+
+/* Стили для главной страницы */
+.main-content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.main-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Стили для карточки */
+.card {
+    width: 400px;
+    height: 550px;
+    border-radius: 30px;
+    background: #212121;
+    box-shadow: 15px 15px 30px rgb(25, 25, 25),
+                -15px -15px 30px rgb(60, 60, 60);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    color: white;
+}
+
+/* Стили для профильного изображения */
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+    border: 3px solid #444;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Стили для информации профиля */
+.profile-info {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+.profile-title {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 0.5rem;
+}
+
+.profile-bio {
+    font-size: 0.85rem;
+    color: #aaa;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.bio-divider {
+    width: 60px;
+    height: 1px;
+    background-color: #555;
+    margin: 0 auto 1rem;
+}
+
+.profile-bio-secondary {
+    font-size: 0.85rem;
+    color: #aaa;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.profile-bio-tertiary {
+    font-size: 0.85rem;
+    color: #aaa;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+
+/* Стили для контейнера кнопок */
+.button-container {
+    margin-top: auto;
+    margin-top: -2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Стили для основной кнопки */
+.cta-button {
+    width: 100%;
+    padding: 12px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all 0.5s ease;
+    font-weight: 600;
+}
+
+.cta-button:hover {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+}
+
+.cta-button:active {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+}
+
+
+/* Класс для скрытия элементов */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Анимация исчезновения лоадера */
+.loader.fade-out {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    transition: all 0.5s ease-in-out;
+}
+
+/* Анимация появления главной страницы */
+.main-content.fade-in {
+    opacity: 1;
+    animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .main-content h1 {
+        font-size: 2rem;
+    }
+    
+    .main-content p {
+        font-size: 1rem;
+    }
+}
